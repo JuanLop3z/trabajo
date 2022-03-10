@@ -31,7 +31,6 @@ namespace WindowsFormsApp2.vista
                 int numeroConsulta = int.Parse(consulta);
 
 
-                var listado = db.usuarios.Select(D => D.id == numeroConsulta);
                 var dato = db.datos.Where(D => D.fk_usuarios == numeroConsulta).Select(D => new {D.producto,D.valor,D.fk_usuarios });
                     dataGridView1.DataSource = dato.ToList();
             }
