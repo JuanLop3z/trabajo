@@ -90,7 +90,7 @@ namespace WindowsFormsApp2.vista
         private void button1_Click(object sender, EventArgs e)
         {
             String usuario = usuarioIngreso.Text;
-            String password = ingresoContraseña.Text;
+            String password = usuarioContraseña.Text;
             loguear(usuario,password);
         }
 
@@ -104,5 +104,82 @@ namespace WindowsFormsApp2.vista
         {
 
         }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            //cambiar colores al pasar sobre ellos
+            aceptarBtn.BackColor = SystemColors.ScrollBar;
+        }
+
+        private void aceptarBtn_MouseLeave(object sender, EventArgs e)
+        {
+            //cambiar colores al salir del boton
+            aceptarBtn.BackColor=SystemColors.Window;
+        }
+
+        private void button1_MouseEnter_1(object sender, EventArgs e)
+        {
+            //cambiar colores al pasar sobre ellos
+            salirBtn.BackColor = SystemColors.ScrollBar;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            //cambiar colores al salir del boton
+            salirBtn.BackColor = SystemColors.Window;
+        }
+
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            //al presionar el boton finalizar programa
+            this.Dispose();
+        }
+
+        private void usuarioIngreso_Click(object sender, EventArgs e)
+        {
+            //metodo para vaciar los contenedores de ingreso de datos
+
+            if (usuarioIngreso.Text.Equals("Ingrese su nombre de usuario"))
+            {
+
+                usuarioIngreso.ResetText();
+                usuarioIngreso.ForeColor = SystemColors.InfoText;
+
+            }
+
+            if (usuarioContraseña.Text.Equals(""))
+            {
+
+                usuarioContraseña.AppendText("************");
+                usuarioContraseña.ForeColor = SystemColors.ScrollBar;
+
+            }    
+            }
+
+        private void usuarioContraseña_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuarioContraseña_Click(object sender, EventArgs e)
+        {
+            //metodo para vaciar los contenedores de ingreso de datos
+
+            if (usuarioContraseña.Text.Equals("************"))
+            {
+
+                usuarioContraseña.ResetText();
+                usuarioContraseña.ForeColor = SystemColors.InfoText;
+
+            }
+
+            if (usuarioIngreso.Text.Equals(""))
+            {
+
+                usuarioIngreso.AppendText("Ingrese su nombre de usuario");
+                usuarioIngreso.ForeColor = SystemColors.ScrollBar;
+
+            }
+        }
     }
-}
+    }
